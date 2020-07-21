@@ -17,6 +17,14 @@ pip install theano
 ```
 
 Run FB15k
-```python code/train.py --settings settings/fb15k.exp --dataset FB15k```
+```
+python code/train.py --settings settings/fb15k.exp --dataset data/FB15k
+```
 
+Run WN18k
+```
+python code/train.py --settings settings/wn18k.exp --dataset data/wn18k
+```
 
+# Notes
+* With current settings WN18 uses around
