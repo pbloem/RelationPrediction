@@ -6,15 +6,22 @@ from optimization.optimize import build_tensorflow
 from common import settings_reader, io, model_builder, optimizer_parameter_parser, evaluation, auxilliaries
 from model import Model
 import numpy as np
+import sys
 
 parser = argparse.ArgumentParser(description="Train a model on a given dataset.")
 parser.add_argument("--settings", help="Filepath for settings file.", required=True)
 parser.add_argument("--dataset", help="Filepath for dataset.", required=True)
+parser.add_argument("--debug", dest='debug', help="Run CUDA debugging test.", action='store_true')
+
 args = parser.parse_args()
+if args.debug:
+
+    print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+
+    sys.exit()
 
 settings = settings_reader.read(args.settings)
 print(settings)
-
 
 
 '''
